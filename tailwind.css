@@ -849,6 +849,10 @@ video {
   height: 2px;
 }
 
+.h-\[4000px\] {
+  height: 4000px;
+}
+
 .h-full {
   height: 100%;
 }
@@ -939,10 +943,6 @@ video {
 
 .h-8 {
   height: 2rem;
-}
-
-.h-\[4000px\] {
-  height: 4000px;
 }
 
 .w-full {

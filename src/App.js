@@ -83,7 +83,7 @@ function App() {
   const skills = 0;
 
   return (
-    <div className=" overflow-hidden relative w-full h-[4000px] flex">
+    <div className=" overflow-hidden relative w-full h-[4000px]">
       
       <div className="absolute w-full h-full flex flex-col">
         <BubbleNav btns={navData} />
