@@ -18,10 +18,7 @@ import certData from './components/certification-data.json';
 import Resume from './components/resume.js';
 import aboutMeData from './components/aboutme-text.json';
 import ethsLogo from './components/images/eths-logo.png';
-import primaryWave from './components/images/wave-primary.svg';
-import secondaryWave from './components/images/wave-secondary.svg';
-import tertiaryWave from './components/images/wave-tertiary.svg';
-import Parallax from './components/parallax';
+import EducationSection from './components/education-section';
 
 
 console.log(navData);
@@ -83,7 +80,7 @@ function App() {
   const skills = 0;
 
   return (
-    <div className=" overflow-hidden relative w-full h-[4000px]">
+    <div className=" overflow-hidden relative w-full h-[5000px]">
       
       <div className="absolute w-full h-full flex flex-col">
         <BubbleNav btns={navData} />
@@ -117,31 +114,7 @@ function App() {
           <Resume />
         </div>
         <div className="absolute top-[2950px] w-full h-[100vh]">
-          <Parallax top={-1200} z={0.4}>
-            <div className="w-full">
-              <img className="relative w-full" src={tertiaryWave} alt="wave" />
-              <div style={{backgroundColor: "#EFF6FF"}} className="relative w-full h-[200px]"></div>
-            </div>
-            
-          </Parallax>
-          <Parallax top={-600} z={0.2}>
-            <div className="w-full">
-              <img className="relative w-full" src={secondaryWave} alt="wave" />
-              <div style={{backgroundColor: "#BFDBFE"}} className="relative w-full h-[200px]"></div>
-            </div>
-          </Parallax>
-          <Parallax top={100} z={0}>
-            <div className="w-full">
-              <img className="relative w-full h-auto" src={primaryWave} alt="wave" />
-              <div className="w-full h-[100vh] bg-blue-300"></div>
-            </div> 
-          </Parallax>
-          
-          
-          
-          
-
-          
+          <EducationSection />
         </div>
       </div>
     </div>
