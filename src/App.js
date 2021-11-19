@@ -83,7 +83,7 @@ function App() {
   const skills = 0;
 
   return (
-    <div className=" overflow-hidden relative w-full h-[4000px]">
+    <div className=" overflow-hidden relative w-full h-[4000px] flex">
       
       <div className="absolute w-full h-full flex flex-col">
         <BubbleNav btns={navData} />
@@ -116,21 +116,27 @@ function App() {
           <CertList certs={certData}/>
           <Resume />
         </div>
-        <div className="absolute top-[1000px] w-full h-[100vh] mt-52">
-          <Parallax top={1500} z={0.4}>
-            <div className="absolute w-full">
-              <img className="relative w-full h-auto" src={tertiaryWave} alt="wave" />
+        <div className="absolute top-[2950px] w-full h-[100vh]">
+          <Parallax top={-1200} z={0.4}>
+            <div className="w-full">
+              <img className="relative w-full" src={tertiaryWave} alt="wave" />
               <div style={{backgroundColor: "#EFF6FF"}} className="relative w-full h-[200px]"></div>
             </div>
             
           </Parallax>
-          <Parallax top={2200} z={0.2}>
-            <div className="absolute w-full">
-              <img className="relative w-full h-auto" src={secondaryWave} alt="wave" />
+          <Parallax top={-600} z={0.2}>
+            <div className="w-full">
+              <img className="relative w-full" src={secondaryWave} alt="wave" />
               <div style={{backgroundColor: "#BFDBFE"}} className="relative w-full h-[200px]"></div>
             </div>
           </Parallax>
-          <img className="relative w-full h-auto" src={primaryWave} alt="wave" />
+          <Parallax top={100} z={0}>
+            <div className="w-full">
+              <img className="relative w-full h-auto" src={primaryWave} alt="wave" />
+              <div className="w-full h-[100vh] bg-blue-300"></div>
+            </div> 
+          </Parallax>
+          
           
           
           

@@ -30,13 +30,5 @@
         "direction":"alternate-reverse",
         "name":"Credentials",
         "href":"#"
-    },
-    {
-        "timeY":"4.0", 
-        "timeX":"20", 
-        "delay":"7", 
-        "direction":"alternate-reverse",
-        "name":"Wai da homie",
-        "href":"#"
     }
 ]
