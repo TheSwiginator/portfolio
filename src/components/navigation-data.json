@@ -1,0 +1,42 @@
+[
+    {
+        "timeY":"4.3", 
+        "timeX":"20", 
+        "delay": "1", 
+        "direction":"alternate",
+        "name":"About Me",
+        "href":"#"
+    },
+    {
+        "timeY":"5.2", 
+        "timeX":"20", 
+        "delay":"3", 
+        "direction":"alternate-reverse",
+        "name":"Projects",
+        "href":"#"
+    },
+    {
+        "timeY":"3.9", 
+        "timeX":"20", 
+        "delay":"5", 
+        "direction":"alternate",
+        "name":"Academics",
+        "href":"#"
+    },
+    {
+        "timeY":"4.0", 
+        "timeX":"20", 
+        "delay":"7", 
+        "direction":"alternate-reverse",
+        "name":"Credentials",
+        "href":"#"
+    },
+    {
+        "timeY":"4.0", 
+        "timeX":"20", 
+        "delay":"7", 
+        "direction":"alternate-reverse",
+        "name":"Wai da homie",
+        "href":"#"
+    }
+]
