@@ -1,5 +1,5 @@
-import profile from './images/profile.png';
-import linkedinIcon from './images/linkedin.svg';
+import profile from './content/images/profile.png';
+import linkedinIcon from './content/images/linkedin.svg';
 
 const Link = (props) => {
     return (

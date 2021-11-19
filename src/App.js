@@ -2,23 +2,21 @@ import './App.css';
 import './index.css';
 // eslint-disable-next-line
 import ProfileCard from './components/profile-card';
-import BGImage from './components/images/bg-blake-3.svg';
-import BGImage2 from './components/images/bg-blake-ice.svg';
-import BGImage3 from './components/images/laptop.svg';
-import Mass from './components/images/mass.svg';
-import Map from './components/map';
-import MassMarked from './components/images/location-marked.png';
+import BGImage from './components/content/images/bg-blake-3.svg';
+import BGImage2 from './components/content/images/bg-blake-ice.svg';
+import BGImage3 from './components/content/images/laptop.svg';
+import Mass from './components/content/images/mass.svg';
 import MapMarker from './components/map-marker';
 import CertList from './components/cert';
 import BubbleNav from './components/bubble-navigation';
 import ScrollNav from './components/scroll-navigation';
 import React, { useState, useEffect } from 'react';
-import navData from './components/navigation-data.json';
-import certData from './components/certification-data.json';
+import navData from './components/content/json/navigation-data.json';
+import certData from './components/content/json/certification-data.json';
 import Resume from './components/resume.js';
-import aboutMeData from './components/aboutme-text.json';
-import ethsLogo from './components/images/eths-logo.png';
-import EducationSection from './components/education-section';
+import aboutMeData from './components/content/json/aboutme-text.json';
+import ethsLogo from './components/content/images/eths-logo.png';
+import EducationSection from './components/education-section/education-section';
 
 
 console.log(navData);
@@ -80,7 +78,7 @@ function App() {
   const skills = 0;
 
   return (
-    <div className=" overflow-hidden relative w-full h-[5000px]">
+    <div className=" overflow-hidden relative w-full h-[10000px]">
       
       <div className="absolute w-full h-full flex flex-col">
         <BubbleNav btns={navData} />
@@ -93,7 +91,7 @@ function App() {
             <MapMarker city="Salem" x="67vh" y="80px" color="#9CA3AF" />
             <MapMarker city="Boston" x="46vh" y="90px" color="#9CA3AF" />
           </div>
-          <Map src={Mass} />
+          <img className="map absolute bottom-0 right-10 w-auto h-1/2 z-0" src={Mass} alt="Map" />
           <div className="home-content absolute right-0 flex flex-col w-1/2 items-end h-full justify-center gap-4 z-20">
             <HomeTitle />
             <p className="desc-1 text-right font-PublicSans text-lg text-gray-500 pr-4">A skilled developer with a passion to learn and create. Has experience in both front-end and back-end developement, coming from an vocational highschool with extensive knowledge in Information Technology. </p>
@@ -114,7 +112,10 @@ function App() {
           <Resume />
         </div>
         <div className="absolute top-[2950px] w-full h-[100vh]">
-          <EducationSection />
+          <EducationSection name="eths" />
+        </div>
+        <div className="absolute top-[4500px] w-full h-[100vh]">
+          <EducationSection name="umb" />
         </div>
       </div>
     </div>
