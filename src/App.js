@@ -15,8 +15,7 @@ import navData from './components/content/json/navigation-data.json';
 import certData from './components/content/json/certification-data.json';
 import Resume from './components/resume.js';
 import aboutMeData from './components/content/json/aboutme-text.json';
-import ethsLogo from './components/content/images/eths-logo.png';
-import EducationSection from './components/education-section/education-section';
+import H2X from './components/h2x';
 
 
 console.log(navData);
@@ -111,11 +110,14 @@ function App() {
           <CertList certs={certData}/>
           <Resume />
         </div>
-        <div className="absolute top-[2950px] w-full h-[100vh]">
-          <EducationSection name="eths" />
-        </div>
-        <div className="absolute top-[4500px] w-full h-[100vh]">
-          <EducationSection name="umb" />
+        <div className="w-full h-screen flex flex-col align-center">
+          <div className="w-full h-1/2">
+            <H2X className="w-full font-PublicSans text-gray-700 text-5xl" match="Essex North Shore Agricultural and Technical School">Coming from Essex North Shore Agricultural and Technical School, I have extensive knowledge in Information Technology.</H2X>
+          </div>
+          <div className="w-full h-1/2 bg-gray-700">
+            
+          </div>
+
         </div>
       </div>
     </div>
