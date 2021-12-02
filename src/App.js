@@ -112,7 +112,7 @@ function App() {
         </div>
         <div className="w-full h-screen flex flex-col align-center">
           <div className="w-full h-1/2">
-            <H2X className="w-full font-PublicSans text-gray-700 text-5xl" match="Essex North Shore Agricultural and Technical School">Coming from Essex North Shore Agricultural and Technical School, I have extensive knowledge in Information Technology.</H2X>
+            <H2X className="w-full font-PublicSans text-gray-700 text-5xl" match={['there', 'name', 'blake']}>hi there, my name is blake.</H2X>
           </div>
           <div className="w-full h-1/2 bg-gray-700">
             
