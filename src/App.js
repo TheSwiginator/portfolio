@@ -104,7 +104,7 @@ function App() {
           <ProfileCard />
           <div className=" w-2/5 h-full flex flex-col">
             <h2 className="font-PublicSans text-5xl text-bold text-gray-700">Hello</h2>
-            <p className="pt-8 pl-1 font-PublicSans text-base text-gray-800 font-bold">{aboutMeData}</p>
+            <p className="pt-8 pl-1 font-PublicSans text-base text-gray-800 font-light">{aboutMeData}</p>
           </div>
         </div>
         <div>

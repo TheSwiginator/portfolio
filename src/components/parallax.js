@@ -19,9 +19,8 @@ function Parallax(props) {
     const myStyle = {
         top: props.top + scrollPosition * props.z,
     }
-
     return (
-        <div style={myStyle} className="absolute w-full">{props.children}</div>
+        <div style={myStyle} className="absolute w-full transition-all">{props.children}</div>
     );
 }
 

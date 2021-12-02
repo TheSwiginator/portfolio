@@ -5,56 +5,61 @@ import tertiaryWaveETHS from '../content/images/wave-tertiary.svg';
 import primaryWaveUMB from '../content/images/wave2-primary.svg';
 import secondaryWaveUMB from '../content/images/wave2-secondary.svg';
 import tertiaryWaveUMB from '../content/images/wave2-tertiary.svg';
-import { PreviousMap } from "postcss";
+import ETHS from "./education-eths";
+import UMB from "./education-umb";
 
-const ETHS = <>
+const ETHS_SECTION = <>
             <Parallax top={-1200} z={0.4}>
                 <div className="w-full">
-                    <img className="relative w-full z-[5]" src={tertiaryWaveETHS} alt="wave" />
-                    <div className="relative w-full h-[200px] bg-blue-100 z-[5]"></div>
+                    <img className="relative w-full z-[5] drop-shadow-lg" src={tertiaryWaveETHS} alt="wave" />
+                    <div className="relative w-full h-[200px] bg-blue-50 z-[5]"></div>
                 </div>
             </Parallax>
             <Parallax top={-600} z={0.2}>
                 <div className="w-full">
-                    <img className="relative w-full z-[6]" src={secondaryWaveETHS} alt="wave" />
+                    <img className="relative w-full z-[6] drop-shadow-lg" src={secondaryWaveETHS} alt="wave" />
                     <div className="relative w-full h-[200px] bg-blue-200 z-[6]"></div>
                 </div>
             </Parallax>
             <Parallax top={100} z={0}>
                 <div className="w-full">
-                    <img className="relative w-full h-auto z-[7]" src={primaryWaveETHS} alt="wave" />
-                    <div className="relative w-full h-[200vh] bg-blue-300 z-[7] flex items-center"></div>
+                    <img className="relative w-full h-auto z-[7] drop-shadow-2xl" src={primaryWaveETHS} alt="wave" />
+                    <div className="relative w-full h-[200vh] bg-blue-300 z-[7]">
+                        <ETHS />
+                    </div>
                 </div> 
             </Parallax>
             </>;
 
-const UMB = <>
-            <Parallax top={-1600} z={0.4}>
+const UMB_SECTION = <>
+            <Parallax top={-1700} z={0.4}>
                 <div className="w-full">
-                <img className="relative w-full z-[8]" src={tertiaryWaveUMB} alt="wave" />
-                <div className="relative w-full h-[200px] bg-green-100 z-[8]"></div>
+                <img className="relative w-full z-[8] drop-shadow-2xl" src={tertiaryWaveUMB} alt="wave" />
+                <div className="relative w-full h-[200px] bg-green-50 z-[8]"></div>
                 </div>
 
             </Parallax>
-            <Parallax top={-800} z={0.2}>
+            <Parallax top={-700} z={0.2}>
                 <div className="w-full">
-                    <img className="relative w-full z-[9]" src={secondaryWaveUMB} alt="wave" />
+                    <img className="relative w-full z-[9] drop-shadow-2xl" src={secondaryWaveUMB} alt="wave" />
                     <div className="relative w-full h-[200px] bg-green-200 z-[9]"></div>
                 </div>
             </Parallax>
-            <Parallax top={100} z={0}>
+            <Parallax top={300} z={0}>
                 <div className="w-full">
-                    <img className="relative w-full h-auto z-[10]" src={primaryWaveUMB} alt="wave" />
-                    <div className="w-full h-full bg-green-300 z-[10]"></div>
+                    <img className="relative w-full h-auto z-[10] drop-shadow-2xl" src={primaryWaveUMB} alt="wave" />
+                    <div className="relative w-full h-[100vh] bg-green-300 z-[10]">
+                        <UMB />
+                    </div>
                 </div> 
             </Parallax>
             </>;
 
 function EducationSection({ name }) {
     if (name === "eths") {
-        return ETHS;
+        return ETHS_SECTION;
     } else if (name === "umb") {
-        return UMB;
+        return UMB_SECTION;
     }
 }
 
