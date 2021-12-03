@@ -116,7 +116,7 @@ function App() {
             textClassName="w-1/2 font-PublicSans text-gray-700 text-3xl" 
             matchClassName="inline-block relative text-3xl font-bold" 
             keywords={['Essex North Shore Agricultural and Technical School', 'Information Technology']}>
-              During my time at Essex North Shore Agricultural and Technical School, I've gained a lot of hands-on experience working with both networking hardware and software while studying in the Information Technology program.
+              Coming from Essex North Shore Agricultural and Technical School, I have extensive knowledge in Information Technology.
             </H2X>
           </div>
           <div className="w-full h-1/2 bg-gray-700">
