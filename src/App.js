@@ -111,8 +111,13 @@ function App() {
           <Resume />
         </div>
         <div className="w-full h-screen flex flex-col align-center">
-          <div className="w-full h-1/2">
-            <H2X className="w-full font-PublicSans text-gray-700 text-5xl" match={['there', 'name', 'blake']}>hi there, my name is blake.</H2X>
+          <div className="w-full h-1/2 pl-4 z-20">
+            <H2X 
+            textClassName="w-1/2 font-PublicSans text-gray-700 text-3xl" 
+            matchClassName="inline-block relative text-3xl font-bold" 
+            keywords={['Essex North Shore Agricultural and Technical School', 'Information Technology']}>
+              During my time at Essex North Shore Agricultural and Technical School, I've gained a lot of hands-on experience working with both networking hardware and software while studying in the Information Technology program.
+            </H2X>
           </div>
           <div className="w-full h-1/2 bg-gray-700">
             
