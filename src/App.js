@@ -16,6 +16,7 @@ import certData from './components/content/json/certification-data.json';
 import Resume from './components/resume.js';
 import aboutMeData from './components/content/json/aboutme-text.json';
 import H2X from './components/h2x';
+import ULX from './components/list'
 
 
 console.log(navData);
@@ -61,18 +62,6 @@ function Lace() {
   );
 }
 
-function Blob() { // maybe maybe maybe
-  return (
-    <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-      <defs></defs>
-      <path style="fill-rule: nonzero; paint-order: fill; stroke-width: 0px; stroke: rgb(191, 219, 254); fill: rgb(219, 234, 254);" d="M 252.945 401.988 C 282.773 463.227 374.627 341.535 408.429 287.303 C 445.759 237.913 504.624 256.305 457.586 170.203 C 388.616 47.315 252.374 60.388 205.77 70.597 C 120.31 84.809 115.817 122.659 121.375 166.951 C 132.464 255.311 93.924 291.297 76.09 355.813 C 56.17 427.871 232.541 360.094 252.945 401.988 Z"></path>
-      <path style="fill-rule: nonzero; paint-order: fill; stroke-width: 0px; stroke: rgb(191, 219, 254); fill: rgb(191, 219, 254);" d="M 143.538 416.487 C 173.366 477.726 329.149 317.854 362.951 263.622 C 400.281 214.232 442.276 205.543 395.238 119.441 C 326.268 -3.447 210.892 126.385 164.288 136.594 C 78.828 150.806 88.541 181.553 52.368 184.114 C -36.463 190.4 -3.051 280.047 37.272 310.822 C 96.495 356.449 123.134 374.593 143.538 416.487 Z"></path>
-      <path style="fill-rule: nonzero; stroke: rgb(0, 162, 255); fill: rgb(147, 197, 253); paint-order: fill; stroke-width: 0px;" d="M 134.855 349.437 C 164.683 410.676 388.39 341.814 422.192 287.582 C 459.522 238.192 368.332 180.225 321.294 94.123 C 252.324 -28.765 227.958 134.363 181.354 144.572 C 95.894 158.784 110.49 140.696 74.317 143.257 C -14.514 149.543 28.221 237.859 68.544 268.634 C 127.767 314.261 114.451 307.543 134.855 349.437 Z"></path>
-      <path style="fill-rule: nonzero; fill: rgb(0, 162, 255); stroke: rgb(0, 162, 255);" d="M 83.557 363.901"></path>
-    </svg>
-  );
-}
-
 function App() {
   const skills = 0;
 
@@ -110,23 +99,33 @@ function App() {
           <CertList certs={certData}/>
           <Resume />
         </div>
-        <div className="w-full h-screen flex flex-col align-center">
-          <div className="w-full h-1/2 pl-4 z-20">
-            <H2X 
-            textClassName="w-1/2 font-PublicSans text-gray-700 text-3xl" 
-            matchClassName="inline-block relative text-3xl font-bold" 
-            keywords={['Essex North Shore Agricultural and Technical School', 'Information Technology']}>
-              Coming from Essex North Shore Agricultural and Technical School, I have extensive knowledge in Information Technology.
-            </H2X>
+        <div className="pl-4 mt-[300px]">
+          <H2X 
+          textClassName="relative w-1/2 font-PublicSans text-gray-700 text-3xl" 
+          matchClassName="inline-block relative text-3xl font-bold" 
+          keywords={['Essex North Shore Agricultural and Technical School', 'information technology']}>
+            Coming from Essex North Shore Agricultural and Technical School, I have extensive knowledge in information technology.
+          </H2X>
+          <div className="grid grid-cols-2 w-2/5">
+            <ULX title="Knowledge in Computer Hardware" items={["Identifying internal PC components","Installing and removing hardware components","Performing preventative maintinence"]} />
+            <ULX title="Knowledge in Linux" items={["Basic Linux commands","Navigating filesytems","Managing file permissions","Text editors such as Vim and Nano","Utilizing package manager"]} />
+            <ULX title="Knowledge in Internetworking" items={["Understanding subnetting IPv4 addresses","Simulating network infrastructure with Cisco Packet Tracer","Extensive knowledge in CiscoIOS","OSI Model and Protocols"]} />
+            <ULX title="Knowledge in Computer Hardware" items={["Identifying internal PC components","Installing and removing hardware components","Performing preventative maintinence"]} />
           </div>
-          <div className="w-full h-1/2 bg-gray-700">
-            
-          </div>
-
+          <H2X 
+          textClassName="relative w-1/2 font-PublicSans text-gray-700 text-3xl mt-8" 
+          matchClassName="inline-block relative text-3xl font-bold" 
+          keywords={['University of Massacusetts Boston', 'computer science']}>
+            I am currently attending University of Massacusetts Boston as a full time computer science student.
+          </H2X>
         </div>
       </div>
     </div>
   );
 };
+
+/*
+
+*/
 
 export default App;
