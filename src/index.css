@@ -174,14 +174,17 @@
   }
 }
 
-/*ul::before {
-  content: ".";
-  width: 2px;
-  height: 100%;
-  background-color: rgb(75, 75, 75);
+.picture:hover > .picture-item {
+  left: 4px;
+  top: -4px;
 
-  color:rgba(0, 0, 0, 0);
-  display: inline-block;
-  margin-right: 5px;
+}
 
-}*/
+.picture:hover > .picture-bg {
+  top: 4px;
+  left: -4px;
+}
+
+.picture-bg, img.picture-item {
+  transition: top 400ms ease-in-out, left 400ms ease-in-out;
+}

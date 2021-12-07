@@ -19,7 +19,13 @@ import H2X from './components/h2x';
 import ULX from './components/list'
 import aboutUMBDataCS from './components/content/json/edu-umb-about-text-cs.json';
 import aboutUMBDataJP from './components/content/json/edu-umb-about-text-jp.json';
-
+import ETHS1 from './components/content/images/eths-photo1.png';
+import ETHS2 from './components/content/images/skills-slide3.jpg';
+import ImageX from './components/stylized-image';
+import ETHS3 from './components/content/images/eths-logo.png';
+import ETHS4 from './components/content/images/eths-photo2.png';
+import UMB1 from './components/content/images/umb-photo1.png';
+import UMB2 from './components/content/images/umb-photo2.jpg';
 
 console.log(navData);
 
@@ -101,7 +107,7 @@ function App() {
           <CertList certs={certData}/>
           <Resume />
         </div>
-        <div className="pl-4 mt-[300px]">
+        <div className="relative pl-4 mt-[300px]">
           <H2X 
           textClassName="relative w-1/2 font-PublicSans text-gray-700 text-3xl" 
           matchClassName="inline-block relative text-3xl font-bold" 
@@ -129,6 +135,11 @@ function App() {
             <p className="font-PublicSans text-xs text-gray-200 mt-1 italic">Description provided by UMass Boston</p>
             <a className="font-PublicSans text-sm text-gray-400 mt-2 italic underline" href="https://www.umb.edu/academics/csm/computer_science/ug/computer_science_bs" alt="Click here to learn more">Click here to learn more</a>
           </div>
+          <ImageX width="300px" height="300px" top="300px" right="400px" captionTop="-50px" captionLeft="-20px" src={ETHS1} alt="My Highschool" caption="My Highschool, 2017" />
+          <ImageX width="250px" height="250px" top="100px" right="50px" captionTop="80px" captionLeft="-30px" src={ETHS2} alt="Skills USA District Competition" caption="Skills USA District Competition, 2018" alignItems="end" />
+          <ImageX width="220px" height="220px" top="500px" right="100px" captionTop="40px" captionLeft="40px" src={ETHS4} alt="My Highschool" caption="IT Shop Classroom, 2018" alignItems="end" />
+          <ImageX width="350px" height="350px" top="800px" right="250px" captionTop="40px" captionLeft="40px" src={UMB2} alt="My Highschool" caption="UMass Boston Dorm 10th Floor, 2021" alignItems="end" />
+          <ImageX width="220px" height="220px" top="700px" right="700px" captionTop="-30px" captionLeft="35px" src={UMB1} alt="My Highschool" caption="UMass Boston Entrance Sign" />
           
         </div>
       </div>
