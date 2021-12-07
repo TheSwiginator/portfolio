@@ -17,6 +17,8 @@ import Resume from './components/resume.js';
 import aboutMeData from './components/content/json/aboutme-text.json';
 import H2X from './components/h2x';
 import ULX from './components/list'
+import aboutUMBDataCS from './components/content/json/edu-umb-about-text-cs.json';
+import aboutUMBDataJP from './components/content/json/edu-umb-about-text-jp.json';
 
 
 console.log(navData);
@@ -106,11 +108,11 @@ function App() {
           keywords={['Essex North Shore Agricultural and Technical School', 'information technology']}>
             Coming from Essex North Shore Agricultural and Technical School, I have extensive knowledge in information technology.
           </H2X>
+          <p className="font-PublicSans text-base text-gray-600 border-2 border-gray-100 pl-2 pt-1 pb-1 w-72 leading-6 font-light rounded-md bg-gray-50 shadow-lg mt-4">Class of 2021<br />565 Maple St, Danvers, MA 01923</p>
           <div className="grid grid-cols-2 w-2/5">
             <ULX title="Knowledge in Computer Hardware" items={["Identifying internal PC components","Installing and removing hardware components","Performing preventative maintinence"]} />
             <ULX title="Knowledge in Linux" items={["Basic Linux commands","Navigating filesytems","Managing file permissions","Text editors such as Vim and Nano","Utilizing package manager"]} />
             <ULX title="Knowledge in Internetworking" items={["Understanding subnetting IPv4 addresses","Simulating network infrastructure with Cisco Packet Tracer","Extensive knowledge in CiscoIOS","OSI Model and Protocols"]} />
-            <ULX title="Knowledge in Computer Hardware" items={["Identifying internal PC components","Installing and removing hardware components","Performing preventative maintinence"]} />
           </div>
           <H2X 
           textClassName="relative w-1/2 font-PublicSans text-gray-700 text-3xl mt-8" 
@@ -118,6 +120,16 @@ function App() {
           keywords={['University of Massacusetts Boston', 'computer science']}>
             I am currently attending University of Massacusetts Boston as a full time computer science student.
           </H2X>
+          <p className="font-PublicSans text-base text-gray-600 border-2 border-gray-100 pl-2 pt-1 pb-1 w-72 leading-6 font-light rounded-md bg-gray-50 shadow-lg mt-4">Class of 2025<br />100 William T Morrissey Blvd, Boston, MA 02125</p>
+          <div className="grid grid-cols-1 w-2/5">
+            <ULX title="Computer Science BS" items={[aboutUMBDataCS]} />
+            <p className="font-PublicSans text-xs text-gray-200 mt-1 italic">Description provided by UMass Boston</p>
+            <a className="font-PublicSans text-sm text-gray-400 mt-2 italic underline" href="https://www.umb.edu/academics/csm/computer_science/ug/computer_science_bs" alt="Click here to learn more">Click here to learn more</a>
+            <ULX title="Japanese - JAPAN 102" items={[aboutUMBDataJP]} />
+            <p className="font-PublicSans text-xs text-gray-200 mt-1 italic">Description provided by UMass Boston</p>
+            <a className="font-PublicSans text-sm text-gray-400 mt-2 italic underline" href="https://www.umb.edu/academics/csm/computer_science/ug/computer_science_bs" alt="Click here to learn more">Click here to learn more</a>
+          </div>
+          
         </div>
       </div>
     </div>
