@@ -26,6 +26,9 @@ import ETHS3 from './components/content/images/eths-logo.png';
 import ETHS4 from './components/content/images/eths-photo2.png';
 import UMB1 from './components/content/images/umb-photo1.png';
 import UMB2 from './components/content/images/umb-photo2.jpg';
+import Pong from './components/pong';
+import Portal from './components/portal';
+import Portfolio from './components/portfolio';
 
 console.log(navData);
 
@@ -107,7 +110,7 @@ function App() {
           <CertList certs={certData}/>
           <Resume />
         </div>
-        <div className="relative pl-4 mt-[300px]">
+        <div className="relative ml-4 mt-[300px]">
           <H2X 
           textClassName="relative w-1/2 font-PublicSans text-gray-700 text-3xl" 
           matchClassName="inline-block relative text-3xl font-bold" 
@@ -142,13 +145,21 @@ function App() {
           <ImageX width="220px" height="220px" top="700px" right="700px" captionTop="-30px" captionLeft="35px" src={UMB1} alt="My Highschool" caption="UMass Boston Entrance Sign" />
           
         </div>
+        <H2X 
+        textClassName="w-full font-PublicSans p-0 m-0 ml-2 text-gray-700 text-5xl mt-12" 
+        matchClassName="inline-block relative text-5xl font-bold" 
+        keywords={["projects", "highlights"]}>In my spare time, I like to work on projects. Here are some highlights.
+        </H2X>
+        <div className="w-full relative grid grid-cols-2 mt-16 ml-16 gap-4">
+          <Pong />
+          <Portal />
+          <Portfolio />
+        </div>
+        
+
       </div>
     </div>
   );
 };
-
-/*
-
-*/
 
 export default App;
