@@ -285,3 +285,23 @@
 .portal-box:hover > .vector {
   opacity: 1;
 }
+
+.text-cursor {
+  border-right-width: 1px;
+  animation: blink 500ms steps(14) infinite; 
+}
+
+@keyframes blink {
+  from{border-right-color: #f9fafbbd;}
+  to{border-right-color: transparent;}
+}
+
+.page {
+  flex-basis: 0;
+}
+
+@media (min-width:768px) {
+  .search-bar {
+    
+  }
+}
