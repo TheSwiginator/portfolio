@@ -188,3 +188,100 @@
 .picture-bg, img.picture-item {
   transition: top 400ms ease-in-out, left 400ms ease-in-out;
 }
+
+.paddle-l {
+  animation: control 4s ease-in-out alternate infinite;
+}
+
+.paddle-r {
+  animation: control 4s ease-in-out alternate-reverse infinite;
+}
+
+
+
+@keyframes control {
+  0% {
+    transform-origin: top;
+    transform: translateY(5%);
+  }
+  100% {
+    transform-origin: bottom;
+    transform: translateY(195%);
+  }
+}
+
+.pong-ball {
+  animation: bounce 4s linear alternate infinite, reflect 2s linear alternate infinite, colorShift 4s linear alternate infinite;
+}
+
+@keyframes bounce {
+  0% {
+    left: 40px;
+  }
+  100% {
+    left: calc(100% - 72px);
+  }
+}
+
+@keyframes reflect {
+  0% {
+    top: 40px;
+  }
+  100% {
+    top: calc(100% - 32px);
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    background-color: #3B82F6;
+  }
+  100% {
+    background-color: #6EE7B7;
+  }
+}
+
+.portal-player {
+  animation: jump .5s ease-out alternate infinite, teleport 1s .5s steps(2) alternate infinite;
+}
+
+@keyframes jump {
+  0% {
+    bottom: 12px;
+  }
+
+  100% {
+    bottom: 130px;
+  }
+}
+
+@keyframes teleport {
+  0% {
+    left: 33%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.portal {
+  animation: ping 1s ease-out infinite;
+}
+
+@keyframes ping {
+  0% {
+    opacity: 50%;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
+.vector {
+  opacity: 0;
+  transition: opacity .5s linear;
+}
+
+.portal-box:hover > .vector {
+  opacity: 1;
+}
