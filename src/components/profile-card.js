@@ -36,6 +36,7 @@ const ProfileCard = (props) => {
             <h2 className="font-PublicSans leading-8 text-gray-900 text-lg text-left pl-5">Blake Moody</h2>
             <p className="font-PublicSans leading-4 text-gray-500 text-sm text-left pl-5">Developer | Tech Guy</p>
             <p className="font-PublicSans leading-4 italic text-gray-500 text-sm text-left pl-5">Blake092202@gmail.com</p>
+            <p className="font-PublicSans leading-4 italic text-gray-500 text-sm text-left pl-5">(781)732-4285</p>
             <ProfileLinks />
         </div>
     );
