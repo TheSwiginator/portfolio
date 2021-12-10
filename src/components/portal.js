@@ -1,6 +1,5 @@
 import '../index.css';
 import PYTHON_ICON_SVG from '../components/content/images/python.svg';
-import LUA_ICON_SVG from '../components/content/images/lua.svg';
 import LOVE_CUBE_PNG from '../components/content/images/love-cube.png';
 
 import { useState } from 'react';

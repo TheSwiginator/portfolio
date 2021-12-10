@@ -1,7 +1,8 @@
 import H2X from "./h2x";
 
 function Resume(props) {
-
+    // eslint-disable-next-line
+    const embed = <iframe className="overflow-hidden" width="100%" src="https://docs.google.com/document/d/1PtKuo5IGLh8UrHJesRx07TjkbyHx-_CXoe_kDvOfBHc/preview?pli=1"></iframe>;
 
     return (
         <div className="relative flex w-full h-[50vh] justify-end gap-[25px] mt-[-50px]">
@@ -16,7 +17,8 @@ function Resume(props) {
             </div>
             <div className="w-[650px] h-full flex pr-[200px]">
                 <div className="flex-shrink-1 w-full h-[150%] bg-gray-50 rounded-lg shadow-lg border-2 border-gray-200 flex pt-4 pl-4 pb-4">
-                    <iframe className="overflow-hidden" width="100%" src="https://docs.google.com/document/d/1PtKuo5IGLh8UrHJesRx07TjkbyHx-_CXoe_kDvOfBHc/preview?pli=1"></iframe>
+                    
+                    {embed}
                 </div>
             </div>
         </div>

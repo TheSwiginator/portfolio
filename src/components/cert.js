@@ -37,6 +37,11 @@ function Cert(props) {
     const listSkills = skills.map((skill) => <li>{skill}</li>
     );
 
+    // eslint-disable-next-line
+    const linkA = <a href="#" className="bg-gray-200 rounded-md shadow-md border-gray-50 flex justify-center items-center hover:animate-pulse">Visit Site</a>;
+    // eslint-disable-next-line
+    const linkB = <a href="#" className="bg-gray-200 rounded-md shadow-md border-gray-50 flex justify-center items-center hover:animate-pulse">View Certificate</a>;
+
     const defaultPane = <>
                     <div style={myStyle} className="absolute w-[40px] h-1/4 right-4 shadow-md leading-4 text-gray-700 flex justify-center items-center"><span className="rotate-text font-PublicSans text-bold">{props.date}</span>
                         <div style={myStyle} className="absolute w-1/2 h-4 right-0 top-full bg-black rounded-bl-full"></div>
@@ -55,8 +60,8 @@ function Cert(props) {
                         </ul>
                     </div>
                     <div className="absolute w-full h-[40px] bottom-4 grid grid-cols-2 gap-4 pl-4 pr-4 font-PublicSans text-gray-800 text-sm">
-                        <a href="#" className="bg-gray-200 rounded-md shadow-md border-gray-50 flex justify-center items-center hover:animate-pulse">Visit Site</a>
-                        <a href="#" className="bg-gray-200 rounded-md shadow-md border-gray-50 flex justify-center items-center hover:animate-pulse">View Certificate</a>
+                        {linkA}
+                        {linkB}
                     </div>
                     </>;
 
