@@ -15,7 +15,7 @@ function Scene() {
                     <img src={ARROW_LEFT_SVG} alt="left" className='h-2/3 w-auto ml-[5px] mr-[5px]' />
                     <img src={ARROW_RIGHT_SVG} alt="right" className='h-2/3 w-auto ml-[5px] mr-[5px]' />
                     <div className='flex-grow h-[75%] bg-gray-600 rounded-lg flex items-center'>
-                        <div className='font-PublicSans text-sm text-gray-50 opacity-60 text-cursor h-[70%] ml-2'>https://www.bmoody.page/home.html</div>
+                        <div className='font-PublicSans text-sm text-gray-50 opacity-60 text-cursor h-[70%] ml-2'>https://www.bmoody.page/portfolio/home.html</div>
                     </div>
                     <img src={VERTICAL_DOTS_SVG} alt="dots" className='h-full w-auto' />
                 </div>
