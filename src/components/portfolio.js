@@ -1,14 +1,15 @@
 import '../index.css';
 import PYTHON_ICON_SVG from '../components/content/images/python.svg';
-import LUA_ICON_SVG from '../components/content/images/lua.svg';
 import ARROW_LEFT_SVG from '../components/content/images/arrow-left.svg';
 import ARROW_RIGHT_SVG from '../components/content/images/arrow-right.svg';
 import VERTICAL_DOTS_SVG from '../components/content/images/vertical-dots.svg';
 import PAGE_BANNER_SVG from '../components/content/images/page-banner.svg';
 
-function Portfolio() {
+import { useRef , useState , useEffect } from 'react';
+
+function Scene() {
     return (
-        <><div className="h-96 relative border-gray-800 border-2 bg-white">
+        <div className="h-96 relative border-gray-800 border-2 bg-white">
             <div className="flex flex-col w-full h-full">
                 <div className="w-full h-8 bg-gray-500 shadow-md flex items-center z-20">
                     <img src={ARROW_LEFT_SVG} alt="left" className='h-2/3 w-auto ml-[5px] mr-[5px]' />
@@ -56,16 +57,71 @@ function Portfolio() {
                 </div>
             </div>
         </div>
-        <div className="pr-24 flex flex-col justify-center">
-            <h2 className="font-PublicSans text-4xl text-gray-800 font-semibold">Portfolio Senior Project</h2>
-            <p className="font-PublicSans text-base text-blue-500 italic">Completed on May, 2021</p>
-            <p className="font-PublicSans text-base text-gray-800">As a senior requirement for all IT students, we had to compile a list of our CTE (Career Technical Education) and Academic achievements and present them in an online google site. After using the google site page I was having trouble adding my own personal style to my site and so, to make my portfolio stick out from the rest, I decided to design my website by hand.</p>
-            <div className="flex w-[280px] h-[50px] gap-4 items-center pl-4 mt-4 bg-gray-50 shadow-md rounded-md">
-              <img className="h-2/3 w-auto" src={PYTHON_ICON_SVG} alt="https://www.python.org/" />
-              <img className="h-2/3 w-auto" src={LUA_ICON_SVG} alt="https://www.lua.org/" />
-            </div>
-        </div></>
     );
 }
 
-export default Portfolio;
+function Description() {
+    const ref = useRef(null);
+    const narrowness = 100;
+
+    const [offset, setOffset] = useState(0);
+
+    useEffect(() => {
+        window.onscroll = () => {
+        setOffset(ref.current.getBoundingClientRect().top);
+        }
+    }, []);
+
+    var myStyle = {
+        top: "0px",
+        left: "0px",
+    }
+
+    var theirStyle = {
+        top: "0px",
+        left: "0px",
+    }
+
+    var boxStyle;
+
+    const notAbove = offset > narrowness;
+    const notBelow = offset < window.innerHeight - 384 - narrowness;
+    const inBounds = notAbove && notBelow;
+
+    if (inBounds) {
+        myStyle = {
+            top: "-10px",
+            left: "10px",
+            backgroundColor: "#f9fafb",
+            boxShadow: "box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
+
+        }
+        theirStyle = {
+            top: "10px",
+            left: "-10px",
+        }
+        boxStyle = {
+            borderRadius: "0px",
+        }
+    }
+
+    return (
+        <div ref={ref} className="relative pr-24 flex flex-col justify-center">
+            <div style={theirStyle} className='absolute w-[75%] h-full bg-gradient-to-r from-blue-500 via-blue-300 to-green-300 transition-all z-10 rounded-md'></div>
+            <div style={boxStyle} className='absolute h-full w-[75%] border-2 border-dashed border-gray-800 z-20 rounded-md transition-all'></div>
+            <div style={myStyle} className='absolute w-[75%] h-full top-0 left-0 flex flex-col justify-center pl-4 pr-4 bg-white transition-all z-30 rounded-md'>
+                <h2 className="font-PublicSans text-4xl text-gray-800 font-semibold">Portfolio Senior Project</h2>
+                <p className="font-PublicSans text-base text-blue-500 italic">Completed on May, 2021</p>
+                <p className="font-PublicSans text-base text-gray-800">As a senior requirement for all IT students, we had to compile a list of our CTE (Career Technical Education) and Academic achievements and present them in an online google site. After using the google site page I was having trouble adding my own personal style to my site and so, to make my portfolio stick out from the rest, I decided to design my website by hand.</p>
+                <div className="flex w-[280px] h-[50px] gap-4 items-center pl-4 mt-4 bg-gray-50 shadow-md rounded-md">
+                <img className="h-2/3 w-auto" src={PYTHON_ICON_SVG} alt="https://www.python.org/" />
+                </div>
+            </div>
+            
+        </div>
+    );
+}
+
+export default function Portfolio() {
+    return <><Scene /><Description /></>
+}
