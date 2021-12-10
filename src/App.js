@@ -3,14 +3,11 @@ import './index.css';
 // eslint-disable-next-line
 import ProfileCard from './components/profile-card';
 import BGImage from './components/content/images/bg-blake-3.svg';
-import BGImage2 from './components/content/images/bg-blake-ice.svg';
-import BGImage3 from './components/content/images/laptop.svg';
 import Mass from './components/content/images/mass.svg';
 import MapMarker from './components/map-marker';
 import CertList from './components/cert';
 import BubbleNav from './components/bubble-navigation';
 import ScrollNav from './components/scroll-navigation';
-import React, { useState, useEffect } from 'react';
 import navData from './components/content/json/navigation-data.json';
 import certData from './components/content/json/certification-data.json';
 import Resume from './components/resume.js';
@@ -22,7 +19,6 @@ import aboutUMBDataJP from './components/content/json/edu-umb-about-text-jp.json
 import ETHS1 from './components/content/images/eths-photo1.png';
 import ETHS2 from './components/content/images/skills-slide3.jpg';
 import ImageX from './components/stylized-image';
-import ETHS3 from './components/content/images/eths-logo.png';
 import ETHS4 from './components/content/images/eths-photo2.png';
 import UMB1 from './components/content/images/umb-photo1.png';
 import UMB2 from './components/content/images/umb-photo2.jpg';
@@ -37,12 +33,6 @@ console.log(navData);
 const Slide = (props) => {
   return (
     <div className="relative h-[100vh] w-full flex pr-10 pl-10">{props.children}</div>
-  );
-};
-
-const DoubleSlide = (props) => {
-  return (
-    <div className="relative h-[200vh] w-full flex pr-10 pl-10">{props.children}</div>
   );
 };
 
@@ -64,17 +54,8 @@ const HomeTitle = () => {
 }
 
 const BackdropLondon = () => {return <img className="absolute top-[-50vh] left-[-22vw] w-1/2 h-auto" src={BGImage} alt="bg-me" />;};
-const BackdropIceland = () => {return <img className="absolute top-[-20vh] left-[-30vw]" src={BGImage2} alt="bg-me" />;};
-const BackdropLaptop = () => {return <img className="absolute w-1/5 h-auto right-0 top-[75vh]" src={BGImage3} alt="laptop" />;};
-
-function Lace() {
-  return (
-    <div className="w-full h-[2px] bg-gradient-to-r from-blue-500 via-blue-300 to-green-300"></div>
-  );
-}
 
 function App() {
-  const skills = 0;
 
   return (
     <div className=" overflow-hidden relative w-full h-[10000px]">

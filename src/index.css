@@ -299,9 +299,3 @@
 .page {
   flex-basis: 0;
 }
-
-@media (min-width:768px) {
-  .search-bar {
-    
-  }
-}
