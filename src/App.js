@@ -127,14 +127,21 @@ function App() {
           
         </div>
         <H2X 
-        textClassName="w-full font-PublicSans p-0 m-0 ml-2 text-gray-700 text-5xl mt-12" 
-        matchClassName="inline-block relative text-5xl font-bold" 
+        textClassName="w-full font-PublicSans p-0 m-0 ml-2 text-gray-700 text-3xl mt-12" 
+        matchClassName="inline-block relative text-3xl font-bold" 
         keywords={["projects", "highlights"]}>In my spare time, I like to work on projects. Here are some highlights.
         </H2X>
         <div className="w-full relative grid grid-cols-2 mt-16 ml-16 gap-4">
           <Pong />
           <Portal />
           <Portfolio />
+        </div>
+        <H2X
+          textClassName="w-full font-PublicSans p-0 m-0 ml-2 text-gray-700 text-3xl mt-12"
+          matchClassName="inline-block relative text-3xl font-bold"
+          keywords={["Relevant Experience"]}>Relevant Experience</H2X>
+        <div className="w-full relative grid grid-cols-3 mt-4 gap-4">
+          <h3 className='font-PublicSans text-3xl text-gray-700 ml-4'>Information Technology Help Desk Support @ UMass Boston</h3>
         </div>
         
 
