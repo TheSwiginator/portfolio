@@ -1,6 +1,6 @@
-<svg viewBox="0 0 449 105" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+<svg viewBox="0 0 449 105" xmlns="http://www.w3.org/2000/svg" xmlnsBx="https://boxy-svg.com">
   <defs>
-    <filter id="drop-shadow-filter-0" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 0 3 0.5 rgba(0,0,0,0.3)">
+    <filter id="drop-shadow-filter-0" x="-500%" y="-500%" width="1000%" height="1000%" bxPreset="drop-shadow 1 0 0 3 0.5 rgba(0,0,0,0.3)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3"></feGaussianBlur>
       <feOffset dx="0" dy="0"></feOffset>
       <feComponentTransfer result="offsetblur">
@@ -13,7 +13,7 @@
         <feMergeNode in="SourceGraphic"></feMergeNode>
       </feMerge>
     </filter>
-    <filter id="drop-shadow-filter-1" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 0 3 0.5 rgba(0,0,0,0.3)">
+    <filter id="drop-shadow-filter-1" x="-500%" y="-500%" width="1000%" height="1000%" bxPreset="drop-shadow 1 0 0 3 0.5 rgba(0,0,0,0.3)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3"></feGaussianBlur>
       <feOffset dx="0" dy="0"></feOffset>
       <feComponentTransfer result="offsetblur">
@@ -26,7 +26,7 @@
         <feMergeNode in="SourceGraphic"></feMergeNode>
       </feMerge>
     </filter>
-    <filter id="drop-shadow-filter-2" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="drop-shadow 1 0 0 3 0.5 rgba(0,0,0,0.3)">
+    <filter id="drop-shadow-filter-2" x="-500%" y="-500%" width="1000%" height="1000%" bxPreset="drop-shadow 1 0 0 3 0.5 rgba(0,0,0,0.3)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="3"></feGaussianBlur>
       <feOffset dx="0" dy="0"></feOffset>
       <feComponentTransfer result="offsetblur">

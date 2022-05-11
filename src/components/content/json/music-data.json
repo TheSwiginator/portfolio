@@ -1,0 +1,75 @@
+[
+    {
+        "trackName":"Passionfruit",
+        "trackLength":"4:58",
+        "artist":"Drake",
+        "year":"2017",
+        "plays":"1,067,392,028",
+        "albumName":"More Life",
+        "isExplicit": true
+    },
+    {
+        "trackName":"I Feel It Coming",
+        "trackLength":"4:29",
+        "artist":"The Weeknd",
+        "year":"2016",
+        "plays":"1,256,813,495",
+        "albumName":"Starboy",
+        "isExplicit": false
+    },
+    {
+        "trackName":"Something Comforting",
+        "trackLength":"4:41",
+        "artist":"Porter Robinson",
+        "year":"2021",
+        "plays":"23,105,444",
+        "albumName":"Nurture",
+        "isExplicit": false
+    },
+    {
+        "trackName":"Overnight Sensation",
+        "trackLength":"3:18",
+        "artist":"Børns",
+        "year":"2015",
+        "plays":"13,960,890",
+        "albumName":"Dopamine",
+        "isExplicit": false
+    },
+    {
+        "trackName":"Passionfruit",
+        "trackLength":"4:58",
+        "artist":"Drake",
+        "year":"2017",
+        "plays":"1,067,392,028",
+        "albumName":"More Life",
+        "isExplicit": true
+    },
+    {
+        "trackName":"I Feel It Coming",
+        "trackLength":"4:29",
+        "artist":"The Weeknd",
+        "year":"2016",
+        "plays":"1,256,813,495",
+        "albumName":"Starboy",
+        "isExplicit": false
+    },
+    {
+        "trackName":"Something Comforting",
+        "trackLength":"4:41",
+        "artist":"Porter Robinson",
+        "year":"2021",
+        "plays":"23,105,444",
+        "albumName":"Nurture",
+        "isExplicit": false
+    },
+    {
+        "trackName":"Overnight Sensation",
+        "trackLength":"3:18",
+        "artist":"Børns",
+        "year":"2015",
+        "plays":"13,960,890",
+        "albumName":"Dopamine",
+        "isExplicit": false
+    }
+    
+]
