@@ -6,10 +6,12 @@ import BGImage from './components/content/images/bg-blake-3.svg';
 import Mass from './components/content/images/mass.svg';
 import MapMarker from './components/map-marker';
 import CertList from './components/cert';
+import ExpList from './components/exp';
 import BubbleNav from './components/bubble-navigation';
 import ScrollNav from './components/scroll-navigation';
 import navData from './components/content/json/navigation-data.json';
 import certData from './components/content/json/certification-data.json';
+import expData from './components/content/json/exp-data.json';
 import Resume from './components/resume.js';
 import aboutMeData from './components/content/json/aboutme-text.json';
 import H2X from './components/h2x';
@@ -25,6 +27,8 @@ import UMB2 from './components/content/images/umb-photo2.jpg';
 import Pong from './components/pong';
 import Portal from './components/portal';
 import Portfolio from './components/portfolio';
+import Music from './components/music';
+import { NavigationList , NavigationListItem } from './components/navigation-list';
 
 console.log(navData);
 
@@ -89,6 +93,16 @@ function App() {
         </div>
         <div>
           <CertList certs={certData}/>
+          <ExpList sections={expData}/>
+          <Music />
+          <div className='w-full h-[50px] flex items-center justify-center'>
+            <NavigationList>
+              <NavigationListItem>Red</NavigationListItem>
+              <NavigationListItem>Blue</NavigationListItem>
+              <NavigationListItem>Green</NavigationListItem>
+              <NavigationListItem>Yellow</NavigationListItem>
+            </NavigationList>
+          </div>
           <Resume />
         </div>
         <div className="relative ml-4 mt-[300px]">

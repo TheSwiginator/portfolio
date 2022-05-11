@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import MS_ICON from './content/images/ms-icon.svg';
+import COMPTIA_ICON from './content/images/comptia-logo.svg';
+import OSHA_ICON from './content/images/osha-logo.svg';
+import CAL_ICON from './content/images/calendar-icon.svg';
+import LOC_ICON from './content/images/location-icon.svg';
+import CERT_DATA from './content/json/certification-data.json';
 
 const MoreCerts = (props) => {
     const [value, setValue] = useState(85);
@@ -20,70 +26,54 @@ const MoreCerts = (props) => {
         </div>
     );
 }
+/* This is for the gradient bullet for the skills list in the certifcation items */
+// <div className="w-[10px] h-full rounded-full bg-gradient-to-b from-blue-500 via-blue-300 to-green-300"></div>
 
-
+/* This is for an unimplemented button to expand the certification description/skills outline */
+//<div className="flex flex-row justify-center items-center pt-[15px] pb-[15px] pl-[20px] pr-[20px] static w-auto h-full bg-blue-500 border-[3px] border-slate-700 box-border font-PTSansNarrow font-extralight text-[1.2rem] leading-8 ">Expand</div>
 
 function Cert(props) {
-    const myStyle = {
-        backgroundColor: props.accentColor,
-    };
+    const [rowSpan, setSpan] = useState(3);
 
-    const shadowStyle = {
-        backgroundColor: props.accentColor,
-        filter: "brightness(90%)",
-    };
+    const listSkills = props["skills"].map((skill) => <li>{skill}</li>);
 
-    const skills = props.skills;
-    const listSkills = skills.map((skill) => <li>{skill}</li>
-    );
-
-    // eslint-disable-next-line
-    const linkA = <a href="#" className="bg-gray-200 rounded-md shadow-md border-gray-50 flex justify-center items-center hover:animate-pulse">Visit Site</a>;
-    // eslint-disable-next-line
-    const linkB = <a href="#" className="bg-gray-200 rounded-md shadow-md border-gray-50 flex justify-center items-center hover:animate-pulse">View Certificate</a>;
-
-    const defaultPane = <>
-                    <div style={myStyle} className="absolute w-[40px] h-1/4 right-4 shadow-md leading-4 text-gray-700 flex justify-center items-center"><span className="rotate-text font-PublicSans text-bold">{props.date}</span>
-                        <div style={myStyle} className="absolute w-1/2 h-4 right-0 top-full bg-black rounded-bl-full"></div>
-                        <div style={myStyle} className="absolute w-1/2 h-4 left-0 top-full bg-black rounded-br-full"></div>
-                    </div>
-                    <div style={myStyle} className="absolute w-[40px] h-[20px] right-4 top-[-20px] rounded-tr-[20px]">
-                        <div style={myStyle} className="absolute h-full w-[40%] right-full"></div>
-                        <div style={shadowStyle} className="absolute h-full w-[80%] right-full rounded-t-[20px]"></div>  
-                    </div>
-                    <div className="w-full h-1/3"></div>
-                    <div className="w-full h-2/3 p-4">
-                        <h1 className="font-PublicSans text-lg text-gray-600 leading-5"><span className="text-gray-400 text-3xl italic font-thin leading-[50px]">{props.code}</span><br />{props.name}</h1>
-                        <ul  className="font-PublicSans text-sm text-gray-600 pt-4">
-                            <li className="font-bold">Skills Measured:</li>
-                            {listSkills}
-                        </ul>
-                    </div>
-                    <div className="absolute w-full h-[40px] bottom-4 grid grid-cols-2 gap-4 pl-4 pr-4 font-PublicSans text-gray-800 text-sm">
-                        {linkA}
-                        {linkB}
-                    </div>
-                    </>;
+    var ICON;
 
     if (props.company === "Microsoft") {
-        return (
-            <div className="cert-panel-microsoft relative w-[300px] h-full bg-gray-50 border-2 border-gray-200 rounded-lg shadow-lg">
-                {defaultPane}
-            </div>
-        );
+        ICON = <img className="static w-auto h-[25px] left-[173px] top-[9.5px]" src={MS_ICON} alt={props.company} />;
+
     } else if (props.company === "CompTia") {
-        return (
-            <div className="cert-panel-comptia relative w-[300px] h-full bg-gray-50 border-2 border-gray-200 rounded-lg shadow-lg">
-                {defaultPane}
-            </div>
-        );
-    } else if (props.company === "Osha") {
-        return (
-            <div className="cert-panel-osha relative w-[300px] h-full bg-gray-50 border-2 border-gray-200 rounded-lg shadow-lg">
-                {defaultPane}
-            </div>
-        );
+        ICON = <img className="static w-auto h-[25px] left-[173px] top-[9.5px]" src={COMPTIA_ICON} alt={props.company} />;
+    } else {
+        ICON = <img className="static w-auto h-[25px] left-[173px] top-[9.5px]" src={OSHA_ICON} alt={props.company} />;
     }
+
+    return (
+        <div className="cert-container w-[425px] h-auto flex flex-col items-start p-[20px] border-2 border-gray-100 row-span-1 hover:row-span-2 transition-all">
+            <div className="flex flex-row items-center p-0 gap-2">
+                <div class="static left-0 top-[5.5px] font-PublicSan font-medium text-[1.5rem] leading-[2.2rem] text-slate-700 opacity-70">{props.company}</div>
+                {ICON}
+            </div>
+            <h2 className="m-0 p-0 static font-PublicSans font-semibold text-[3rem] leading-[3.7rem] text-slate-700">Certification</h2>
+            <h2 className="m-0 p-0 static font-PublicSans italic font-light text-[3rem] leading-[3.7rem] text-[#374151] opacity-[0.8]">{props.code}</h2>
+            <h3 className="static mt-1 left-[20px] top-[225px] font-PublicSans font-light text-[1.65rem] leading-[1.9rem] text-[#374151]">{props.name}</h3>
+            <div className="flex flex-row items-center p-0 mt-1 static h-[28px] left-[20px] gap-2">
+                <img src={CAL_ICON} alt="Calendar" />
+                <p className="static h-[18px] left-[29px] top-[5px] font-PublicSans font-light text-[0.7rem] leading-[18px] flex items-center text-[#374151] opacity-[0.7]">{props.date}</p>
+                <div className="static w-1 h-1 left-[91px] top-[12px] bg-[#374151] opacity-[0.7] rounded-full"></div>
+                <img src={LOC_ICON} alt="Location" />
+                <p className="static h-[18px] left-[29px] top-[5px] font-PublicSans font-light text-[0.7rem] leading-[18px] flex items-center text-[#374151] opacity-[0.7]">Hawthorne, Massachusetts</p>
+                
+            </div>
+            <div className="skills-list flex flex-row items-start gap-[10px] p-[5px] static w-full h-0 bg-white overflow-hidden transition-all">
+                <ul className="p-0 m-0 list-none text-sm font-PublicSans font-light text-[0.8rem] leading-5 text-slate-600">{listSkills}</ul>
+            </div>
+            <div className="flex flex-row items-start gap-3 pt-[10px] static w-auto h-[61px]">
+                
+                <div className="flex flex-row justify-center items-center pt-[15px] pb-[15px] pl-[20px] pr-[20px] static w-auto h-full bg-white border-[1px] border-slate-200 box-border font-PTSansNarrow font-extralight text-[1.2rem]  leading-8 ">Learn More</div>
+            </div>
+        </div>
+    );
 
 }
 
@@ -91,39 +81,15 @@ function Cert(props) {
 function CertList(props) {
     const [certI, setCertI] = useState(0);
 
-    const certs = props.certs;
-    const listCerts = certs.map((cert) => 
-        <Cert {...cert} />
-    );
-
-    const [shownCerts, setShownCerts] = useState(listCerts.slice(certI, certI+3));
-    
-    const handleMouseDown = (n) => {
-        // change slice in list of certs
-        if (!(certI + n < 0 || certI + n >= certs.length)) {
-            // changes the slice of the certs list only if its in bounds
-            setCertI(certI + n);
-        }
-    }
-
-    const handleMouseUp = () => {
-        // apply slice change of certs to the DOM
-        setShownCerts(listCerts.slice(certI, certI+3));
-    }
+    const ListOfCerts = CERT_DATA.map(cert => <Cert {...cert} />);
 
     return (
-        <div className="flex h-[100vh] w-full items-center">
-            <div onMouseDown={() => handleMouseDown(-3)} onMouseUp={() => handleMouseUp()}>
-                <MoreCerts>&lt;</MoreCerts>
-            </div>
-            <div className="flex gap-4 h-4/5">{shownCerts}</div>
-            <div onMouseDown={() => handleMouseDown(3)} onMouseUp={() => handleMouseUp()}>
-                <MoreCerts>&gt;</MoreCerts>
-            </div>
-            <div className="flex-shrink-1 w-1/2 h-[80%] flex justify-center items-end">
-                <h2 className="w-full text-left font-PublicSans text-gray-700 text-5xl">Coming from an Technical High School, I know my stuff. Here are my <span className="display: inline-block relative text-5xl font-bold">certications<div className="w-full h-1 bg-gradient-to-r from-blue-500 via-blue-300 to-green-300 rounded-md"></div></span>.</h2>
+        <div className="w-full h-auto flex justify-center mt-[2000px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 xl:grid-cols-3 xl:grid-rows-3 gap-5">
+                {ListOfCerts}
             </div>
         </div>
+        
     );
 }
 

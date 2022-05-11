@@ -20,6 +20,18 @@ function NavButton({name, href, offset, length}) {
     );
 }
 
+function waitForPause(ms, callback) {
+    var timer;
+
+    return function() {
+        var self = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function() {
+            callback.apply(self, args);
+        }, ms);
+    };
+}
+
 function ScrollNav({btns}) {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [offset, setOffset] = useState(0);
@@ -32,7 +44,7 @@ function ScrollNav({btns}) {
     };
   
     useEffect(() => {
-        window.addEventListener('scroll', handleScroll, { passive: true });
+        window.addEventListener('scroll', waitForPause(30, handleScroll), { passive: true });
   
         return () => {
             window.removeEventListener('scroll', handleScroll);

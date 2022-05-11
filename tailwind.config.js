@@ -1,10 +1,10 @@
 module.exports = {
   mode: 'jit',
-  purge: ['./src/**/*.{js,jsx,ts,tsx}', './public/index.html'],
-  darkMode: false, // or 'media' or 'class'
+  content: ["./src/**/*.{js,jsx,ts,tsx}",],
   theme: {
     fontFamily: {
-      'PublicSans': ['"public sans"', 'sans-serif']
+      'PublicSans': ['"public sans"', 'sans-serif'],
+      'PTSansNarrow': ['"PT Sans Narrow"', 'sans-serif'],
     },
     extend: {
       animation: {

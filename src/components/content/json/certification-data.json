@@ -5,7 +5,8 @@
       "date":"4.26.2021",
       "code":"98-383",
       "name":"Microsoft Technology Associate Intro to programming using HTML and CSS",
-      "skills":["Understand HTML Fundamentals","Understand CSS Fundamentals","Structure Documents Using HTML", "Present Multimedia Using HTML","Style Web Pages Using CSS"]
+      "skills":["Understand HTML Fundamentals","Understand CSS Fundamentals","Structure Documents Using HTML", "Present Multimedia Using HTML","Style Web Pages Using CSS"],
+      "icon": "./content/images/ms-icon.svg"
     },
     {
       "company": "Microsoft",
@@ -13,7 +14,8 @@
       "date":"3.22.2021",
       "code":"98-349",
       "name":"Microsoft Technology Associate Windows® Operating System Fundamentals",
-      "skills":["Understanding operating system configurations", "Installing and upgrading client systems", "Managing applications", "Managing files and folders", "Managing devices", "Understanding operating system maintenance"]
+      "skills":["Understanding operating system configurations", "Installing and upgrading client systems", "Managing applications", "Managing files and folders", "Managing devices", "Understanding operating system maintenance"],
+      "icon": "./content/images/ms-icon.svg"
     },
     {
       "company": "Microsoft",
@@ -21,7 +23,8 @@
       "date":"2.23.2021",
       "code":"98-381",
       "name":"Microsoft Technology Associate Introduction to Programming using Python",
-      "skills":["Perform Operations using Data Types and Operators", "Control Flow with Decisions and Loops", "Perform Input and Output Operations", "Document and Structure Code", "Perform Troubleshooting and Error Handling", "Perform Operations Using Modules and Tools"]
+      "skills":["Perform Operations using Data Types and Operators", "Control Flow with Decisions and Loops", "Perform Input and Output Operations", "Document and Structure Code", "Perform Troubleshooting and Error Handling", "Perform Operations Using Modules and Tools"],
+      "icon": "./content/images/ms-icon.svg"
     },
     {
       "company": "Microsoft",
@@ -29,7 +32,8 @@
       "date":"3.9.2021",
       "code":"98-366",
       "name":"Microsoft Technology Associate Networking Fundamentals",
-      "skills":["Understanding network infrastructures", "Understanding network hardware", "Understanding protocols and services"]
+      "skills":["Understanding network infrastructures", "Understanding network hardware", "Understanding protocols and services"],
+      "icon": "./content/images/ms-icon.svg"
     },
     {
       "company": "CompTia",
