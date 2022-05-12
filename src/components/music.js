@@ -1,4 +1,4 @@
-import { useEffect , useState , useRef, useCallback } from 'react';
+import { useEffect , useState , useRef, useCallback, forwardRef } from 'react';
 import SpotifyAPI from './spotify-api';
 import { NavigationList , NavigationListItem } from './navigation-list';
 
@@ -24,42 +24,30 @@ function Album({ albumImg , albumName }) {
     );
 }
 
-function Track({ scrollPosition , targetIndex , index , trackUrl , trackName , trackLength , artistName , artistImg , albumImg , albumName , isExplicit , props }) {
+const Track = forwardRef(({targetIndex , index , trackUrl , trackName , trackLength , artistName , artistImg , albumImg , albumName , isExplicit }, ref) => {
+    const [el, setEl] = useState(0);
 
     const [vis, setVis] = useState(0);
 
-    useEffect(() => {
-        setVis(1);
-    }, [])
-    
-
     const explicitIcon = <div className='w-[15px] h-[15px] font-PublicSans bg-slate-300 font-semibold flex items-center justify-center text-center text-[10px] text-white box-border pr-[1px] rounded-[3px]'>E</div>;
 
-    /*function checkInBounds(ref, padding=0) {
-        const child = node.getBoundingClientRect();
-        const parent = node.parentElement.getBoundingClientRect();
-        const diffLeft = child.x - parent.x;
-        const diffRight = (parent.x + parent.width) - (child.x + child.width);
-        setInbounds(diffLeft > 0 && diffRight > 0);
-        console.log(diffLeft > 0 && diffRight > 0);
-    }*/
-
-
+    useEffect(() => {
+        setVis(1);
+    }, []);
 
     var style = {
         opacity: vis,
-        transition: `opacity .5s ease`,
+        transition: `opacity .5s ease ${index * 0.1}s, transform .5s ease`,
     }
 
     return (
-        <div style={style} className='opacity-0 flex flex-col flex-grow items-start p-0 relative w-[353px] h-auto rounded-[10px] overflow-clip'>
-            {scrollPosition[0]}
+        <div ref={ref} onClick={() => el.parentNode.animate({scrollLeft: el.offsetLeft - 100}, 300)} style={style} className='opacity-0 flex flex-col flex-grow items-start p-0 relative w-[353px] h-auto rounded-[10px] overflow-clip transition-all'>
             <Album albumImg={albumImg} albumName={albumName} />
             <div className='flex flex-col justify-between items-start pl-[10px] pt-[10px] pr-[10px] pb-[15px] h-[209px] w-full bg-white  rounded-b-[10px]'>
                 <div className='flex flex-col items-start p-0 w-full h-auto gap-[5px]'>
                     <div className='flex flex-row justify-between items-start p-0 w-full h-auto gap-[10px]'>
                         <div className='flex flex-row items-start p-0 gap-[5px]'>
-                            <span style={{color: (index == targetIndex) ? 'rgb(185,28,28)' : 'rgb(51,65,85)'}} className='font-PublicSans font-normal text-[30px] leading-[100.5%] flex items-end capitalize text-slate-700'>{trackName}</span>
+                            <span className='font-PublicSans font-normal text-[30px] leading-[100.5%] flex items-end capitalize text-slate-700'>{trackName}</span>
                             <div className='w-auto h-full pt-[5px]'>{isExplicit ? explicitIcon : null}</div>
                         </div>
                         <div className='flex flex-row justify-center items-center pl-[10px] pr-[10px] w-auto h-[30px] border-[1px] border-slate-300 rounded-[3px]'>
@@ -91,7 +79,7 @@ function Track({ scrollPosition , targetIndex , index , trackUrl , trackName , t
             </div>
         </div>
     );
-}
+});
 
 
 function MSToTime(ms) {
@@ -144,6 +132,8 @@ function LoadingList(props) {
     );
 }
 
+
+
 function Music(props) {
     /* Featured Playlists: */
 
@@ -156,7 +146,19 @@ function Music(props) {
     const [index, setIndex] = useState(0);
     const [trackList, setTrackList] = useState(null);
     const [playlistNames, setPlaylistNames] = useState(null);
-    const [scrollPosition, setScrollPosition] = useState(0);
+    const itemsRef = useRef([]);
+    const [scroll, setScroll] = useState(0);
+
+    const Parsed = props => {
+    
+        useEffect(() => {
+           itemsRef.current = itemsRef.current.slice(0, props.items.length);
+        }, [props.items]);
+    
+        return props.items.map((item, i) => (
+            <Track ref={el => {itemsRef.current[i] = el; console.log(el); return el}} key={i} targetIndex={i} {...item} />
+        ));
+    }
 
     const playlists = [
         {id:'507x2hWyz5BRc8RAGm8KaZ', name:'loading..'}, 
@@ -164,6 +166,8 @@ function Music(props) {
         {id:'7kut0kf3lZdVqU9YCJVFOZ', name:'loading..'}, 
         {id:'7gyU14Jr3oiptWZPoEXPyA', name:'loading..'}
     ];
+
+    
 
     async function parsePlaylistSongs(id) {
         let songs = [];
@@ -185,9 +189,7 @@ function Music(props) {
             });
         }
 
-        const songList = await Promise.all(songs);
-
-        return songList.map((track, i) => <Track scrollPosition={[scrollPosition, setScrollPosition]} key={i} targetIndex={index} {...track} />);
+        return await Promise.all(songs);
     }
 
     async function getPlaylistNames() {
@@ -202,9 +204,11 @@ function Music(props) {
 
     async function getTrackList(id=playlists[index].id) {
         setTrackList(null);
-        const response = await parsePlaylistSongs(id).then(data => data);
-        setTrackList(response);
+        const items = await parsePlaylistSongs(id).then(data => data);
+        setTrackList(<Parsed items={items} />);
     }
+
+    
 
     useEffect(() => {
         getPlaylistNames().then(data => setPlaylistNames(data));
@@ -222,19 +226,86 @@ function Music(props) {
         
     }, [])
     
-    
+    function isInBounds(item, padding=0) {
+        const child = item.getBoundingClientRect();
+        const parent = item.parentElement.getBoundingClientRect();
+        const diffLeft = child.x - parent.x;
+        const diffRight = (parent.x + parent.width) - (child.x + child.width);
+        return diffLeft > padding && diffRight > padding
+    }
+
+    function handleScroll(e) {
+        const bounds = itemsRef.current.map(item => {
+            if (isInBounds(item, -200)) {
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                item.style.opacity = 1;
+                item.style.transform = `translateY(0)`;
+            } else {
+                item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                item.style.opacity = 0;
+                item.style.transform = `translateY(50px)`;
+            }
+            return item
+        });
+        if (e.target.scrollLeft == 0) {
+            // handle max left scroll
+            const el = document.getElementById('scroll-left');
+            const shadow = document.getElementById('scroll-left-shadow');
+            shadow.style.visibility = 'hidden';
+            el.style.transition = 'left 1s ease, opacity 1s ease';
+            el.style.left = '-50px';
+            el.style.opacity = '0';
+
+        } else {
+            // handle NOT max left scroll
+            const el = document.getElementById('scroll-left');
+            const shadow = document.getElementById('scroll-left-shadow');
+            shadow.style.visibility = 'visible';
+            el.style.transition = 'left 1s ease, opacity 1s ease';
+            el.style.left = '20px';
+            el.style.opacity = '0.9';
+        }
+        if (e.target.scrollLeft == e.target.scrollLeftMax) {
+            // handle max right scroll
+            const el = document.getElementById('scroll-right');
+            const shadow = document.getElementById('scroll-right-shadow');
+            shadow.style.visibility = 'hidden';
+            el.style.transition = 'right 1s ease, opacity 1s ease';
+            el.style.right = '-50px';
+            el.style.opacity = '0';
+            
+        } else {
+            // handle NOT max right scroll
+            const el = document.getElementById('scroll-right');
+            const shadow = document.getElementById('scroll-right-shadow');
+            shadow.style.visibility = 'visible';
+            el.style.transition = 'right 1s ease, opacity 1s ease';
+            el.style.right = '20px';
+            el.style.opacity = '0.9';
+        }
+    }
 
     return (
-        <div className="flex w-full justify-center h-[700px] mt-[200px] mb-[200px] p-[10px]">
+        <div className="flex w-full justify-center h-auto mt-[200px] mb-[200px] p-[10px]">
             <div className="music-content flex flex-col items-center h-full w-full p-0 static flex-grow">
-                <div className="music-discover h-full w-3/4 flex flex-col items-center p-5 pt-[20px] mt-[50px] static border-[2px] border-slate-100">
+                <div className="music-discover relative h-full w-3/4 flex flex-col items-center p-5 pt-[20px] mt-[50px] border-[2px] border-slate-100">
                     <div className="music-genre-list flex flex-row items-center justify-center mb-[20px] static w-3/4 h-auto">
-                        {playlistNames != null ? <NavigationList>{playlistNames}</NavigationList> : 0}
+                        {playlistNames != null ? <NavigationList>{playlistNames}</NavigationList> : 0}{scroll}
                     </div>
-                    <div id='music-content-list' onScroll={(e) => {setScrollPosition(e.target.scrollLeft); console.log(scrollPosition);}} className='music-content-list w-full h-auto relative music-list grid grid-flow-col items-start gap-[30px] overflow-x-scroll bg-white rounded-md'>
+                    <div onScroll={(e) => handleScroll(e)} id='music-content-list' className='music-content-list w-full h-auto relative music-list grid grid-flow-col pb-[40px] items-start gap-[30px] overflow-x-scroll overflow-y-hidden rounded-md'>
                             {trackList != null ? trackList : <LoadingList />}
-                            <div className='sticky right-[100%] top-0 h-full w-5 z-auto bg-gradient-to-r from-white via-transparent to-transparent'></div>
-                            <div className='sticky right-0 top-0 h-full w-5 z-auto bg-gradient-to-l from-white via-transparent to-transparent'></div>
+                    </div>
+                    <div className='absolute flex flex-row items-center justify-start left-5 top-0 h-full w-5 z-auto bg-gradient-to-r from-white via-transparent to-transparent'>
+                        <div id='scroll-left-shadow' className='scroll-button-shadow-left absolute w-[75px] h-[75px] rounded-full  bg-gradient-to-t from-slate-200 via-transparent to-transparent shadow-lg left-5'></div>
+                        <div id='scroll-left' className='scroll-button opacity-90 absolute w-[75px] h-[75px] rounded-full bg-white border-white border-1 left-5 flex flex-row items-center justify-center z-auto'>
+                            <div className='clip-arrow-left bg-gradient-to-l from-green-500 to-lime-400 w-[25px] h-[15px]'></div>
+                        </div>
+                    </div>
+                    <div className='absolute flex flex-row items-center justify-start right-5 top-0 h-full w-5 z-auto bg-gradient-to-l from-white via-transparent to-transparent'>
+                        <div id='scroll-right-shadow' className='scroll-button-shadow absolute w-[75px] h-[75px] rounded-full bg-gradient-to-t from-slate-200 via-transparent to-transparent shadow-lg right-5'></div>
+                        <div id='scroll-right' className='scroll-button opacity-90 absolute w-[75px] h-[75px] rounded-full bg-white border-white border-1 right-5 flex flex-row items-center justify-center z-auto'>
+                            <div className='clip-arrow-right bg-gradient-to-l from-green-500 to-lime-400 w-[25px] h-[15px] transform'></div>
+                        </div>
                     </div>
                 </div>
 
