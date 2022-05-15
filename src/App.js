@@ -28,6 +28,7 @@ import Pong from './components/pong';
 import Portal from './components/portal';
 import Portfolio from './components/portfolio';
 import Music from './components/music';
+import Repos from './components/repos';
 import { NavigationList , NavigationListItem } from './components/navigation-list';
 
 console.log(navData);
@@ -95,6 +96,7 @@ function App() {
           <CertList certs={certData}/>
           <ExpList sections={expData}/>
           <Music />
+          <Repos />
           <div className='w-full h-[50px] flex items-center justify-center'>
             <NavigationList>
               <NavigationListItem>Red</NavigationListItem>

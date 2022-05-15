@@ -7,23 +7,6 @@ import HEADPHONES_ICON from './content/images/headphones-icon.svg';
 import ARROW_ICON from './content/images/arrow.svg';
 import SPOTIFY_ICON from './content/images/spotify.svg';
 
-function Album({ albumImg , albumName }) {
-    const [mouse, setMouse] = useState(null);
-    const [vis, setVis] = useState(false);
-
-    const style = {
-        visibility: !vis ? 'hidden' : 'visible',
-        position: "fixed",
-        top: !mouse ? 0 : mouse.screenY - 100, left: !mouse ? 0 : mouse.screenX + 20,
-    }
-
-    return (
-        <div onMouseEnter={() => setVis(true)} onMouseLeave={() => setVis(false)} onMouseMove={(e) => setMouse(e)} style={{backgroundImage:`url(${albumImg.url})`, backgroundSize: "100% auto"}} className='w-full flex flex-col items-start p-0 flex-grow h-[209px] rounded-b-[10px]'>
-            <div style={style} className="w-auto h-[30px] bg-slate-200 border-2 font-PublicSans text-[12px] italic text-slate-700 pl-3 pr-3 flex justify-center items-center leading-5 z-50 opacity-60 backdrop-blur-md rounded-sm overflow-hidden shadow-md">{albumName}</div>
-        </div>
-    );
-}
-
 const Track = forwardRef(({targetIndex , index , trackUrl , trackName , trackLength , artistName , artistImg , albumImg , albumName , isExplicit }, ref) => {
     const [el, setEl] = useState(0);
 
@@ -42,7 +25,7 @@ const Track = forwardRef(({targetIndex , index , trackUrl , trackName , trackLen
 
     return (
         <div ref={ref} onClick={() => el.parentNode.animate({scrollLeft: el.offsetLeft - 100}, 300)} style={style} className='opacity-0 flex flex-col flex-grow items-start p-0 relative w-[353px] h-auto rounded-[10px] overflow-clip transition-all'>
-            <Album albumImg={albumImg} albumName={albumName} />
+            <div style={{backgroundImage:`url(${albumImg.url})`, backgroundSize: "100% auto"}} className='w-full flex flex-col items-start p-0 flex-grow h-[209px] rounded-b-[10px]'></div>
             <div className='flex flex-col justify-between items-start pl-[10px] pt-[10px] pr-[10px] pb-[15px] h-[209px] w-full bg-white  rounded-b-[10px]'>
                 <div className='flex flex-col items-start p-0 w-full h-auto gap-[5px]'>
                     <div className='flex flex-row justify-between items-start p-0 w-full h-auto gap-[10px]'>
