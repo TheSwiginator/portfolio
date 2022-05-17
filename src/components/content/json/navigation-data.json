@@ -4,16 +4,16 @@
         "timeX":"20", 
         "delay": "1", 
         "direction":"alternate",
-        "name":"About Me",
-        "href":"#"
+        "name":"Legacy",
+        "href":"Legacy"
     },
     {
         "timeY":"5.2", 
         "timeX":"20", 
         "delay":"3", 
         "direction":"alternate-reverse",
-        "name":"Projects",
-        "href":"#"
+        "name":"About Me",
+        "href":"About"
     },
     {
         "timeY":"3.9", 

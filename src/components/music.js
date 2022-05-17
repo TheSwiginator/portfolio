@@ -139,7 +139,7 @@ function Music(props) {
         }, [props.items]);
     
         return props.items.map((item, i) => (
-            <Track ref={el => {itemsRef.current[i] = el; console.log(el); return el}} key={i} targetIndex={i} {...item} />
+            <Track ref={el => {itemsRef.current[i] = el; return el}} key={i} targetIndex={i} {...item} />
         ));
     }
 

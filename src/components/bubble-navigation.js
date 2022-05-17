@@ -36,8 +36,9 @@ function BubbleNav({btns}) {
     useEffect(() => {
       window.addEventListener('scroll', handleScroll, { passive: true });
   
-      return () => {
+      return function cleanup() {
         window.removeEventListener('scroll', handleScroll);
+        
       };
     }, []);
   

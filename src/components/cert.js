@@ -49,7 +49,7 @@ function Cert(props) {
     }
 
     return (
-        <div className="cert-container w-[425px] h-auto flex flex-col items-start p-[20px] border-2 border-gray-100 row-span-1 hover:row-span-2 transition-all">
+        <div className="cert-container w-[425px] h-auto flex flex-col items-start p-[20px] border-2 border-gray-100 bg-white row-span-1 transition-all">
             <div className="flex flex-row items-center p-0 gap-2">
                 <div class="static left-0 top-[5.5px] font-PublicSan font-medium text-[1.5rem] leading-[2.2rem] text-slate-700 opacity-70">{props.company}</div>
                 {ICON}
@@ -84,7 +84,7 @@ function CertList(props) {
     const ListOfCerts = CERT_DATA.map(cert => <Cert {...cert} />);
 
     return (
-        <div className="w-full h-auto flex justify-center mt-[2000px]">
+        <div className="w-full h-auto flex justify-center mt-[200px]">
             <div className="grid grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 xl:grid-cols-3 xl:grid-rows-3 gap-5">
                 {ListOfCerts}
             </div>
