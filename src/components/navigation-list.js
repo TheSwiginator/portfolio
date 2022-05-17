@@ -19,7 +19,7 @@ function NavigationListItem({ children , onClick }) {
     )
 }
 
-function NavigationList({ children }) {
+function NavigationList({ children , className='border-slate-700 border-[0.5px] w-full h-full rounded-sm' }) {
     const [currentButtonRef, setCurrentButtonRef] = useState(null);
 
     const navigationItems = children.map((child, index) => <NavigationButton key={index} currentButtonRef={currentButtonRef} setCurrentButtonRef={setCurrentButtonRef}>{child}</NavigationButton>);
@@ -33,10 +33,10 @@ function NavigationList({ children }) {
     }
 
     return (
-        <div className='nav-list w-full h-full flex flex-row gap-[25px] relative'>
+        <div className='nav-list w-auto h-auto flex flex-row gap-[25px] relative'>
             {navigationItems}
             <div style={highlightStyle} className='nav-list-highlight opacity-0 flex items-end justify-end rounded-md z-auto py-[3px] box-border'>
-                <div className='border-slate-700 border-[0.5px] w-full h-full rounded-sm'></div>
+                <div className={className}></div>
             </div>
             
         </div>
