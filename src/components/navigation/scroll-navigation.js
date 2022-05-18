@@ -1,6 +1,12 @@
+// React dependencies
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+// Imported components
 import { NavigationList , NavigationListItem } from './navigation-list';
-import NAV_DATA from './content/json/navigation-data.json';
+
+// Page data
+import NAV_DATA from '../content/json/navigation-data.json';
 
 function waitForPause(ms, callback) {
     var timer;
@@ -17,7 +23,7 @@ function waitForPause(ms, callback) {
 function ScrollNav({btns , pageIndex }) {
     const [isNavHidden, setNavHidden] = useState(false);
 
-    const navigationElement = (name, href) => <div onClick={() => {pageIndex[1](href); console.log(href)}} className='w-auto h-auto px-5 py-3 flex items-center justify-center font-PublicSans text-sm text-slate-700' href={href}>{name}</div>;
+    const navigationElement = (name, href) => <Link to={href} className='w-auto h-auto px-5 py-3 flex items-center justify-center font-PublicSans text-sm text-slate-700'>{name}</Link>;
     const navigationList = NAV_DATA.map(item => navigationElement(item.name, item.href));
 
     function handleScroll(e) {

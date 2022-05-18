@@ -5,7 +5,6 @@ import LOC_ICON from './content/images/location-icon.svg';
 import ETHS_PHOTO_1 from './content/images/eths-photo1.png';
 import ETHS_PHOTO_2 from './content/images/eths-photo2.png';
 import ETHS_PHOTO_3 from './content/images/skills-slide3.jpg';
-import ImageSpread from './image-spread';
 
 const WrappedHeader = () => {
     return (

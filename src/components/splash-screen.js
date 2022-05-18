@@ -1,3 +1,6 @@
+// React dependencies
+import { useEffect , useState } from 'react';
+
 // Imported components
 import ProfileCard from './profile-card';
 import MapMarker from './map-marker';
@@ -6,6 +9,8 @@ import MapMarker from './map-marker';
 import aboutMeData from './content/json/aboutme-text.json';
 import Mass from './content/images/mass.svg';
 import BGImage from './content/images/bg-blake-3.svg';
+import PROFILE from './content/images/splash/splash-screen-profile.svg';
+import WAVES from './content/images/splash/splash-screen-waves.svg';
 
 const Slide = (props) => {
     return (
@@ -28,31 +33,82 @@ const HomeTitle = () => {
   
 const BackdropLondon = () => {return <img className="absolute top-[-50vh] left-[-22vw] w-1/2 h-auto z-[-5]" src={BGImage} alt="bg-me" />;};
 
+function Background() {
+    return (
+        <div className='absolute w-full h-[100vh] top-0 left-0 flex flex-row'>
+            <div className='w-[37.5%] h-auto flex flex-row-reverse items-center overflow-hidden relative'>
+                <div className='w-[200vh] h-auto absolute right-0 flex flex-row justify-end'>
+                    <img className='absolute right-0 w-[40%] h-auto transform translate-y-[-25%]' src={PROFILE} alt='profile' />
+                </div>
+                
+            </div>
+            <div className='w-[62.5%] h-full flex flex-row flex-start items-center relative'>
+                <div className='w-[200vh] h-full absolute left-0 flex flex-row'>
+                    <img className=' h-[285%] absolute left-[-13.5%] rounded-[11px] transform translate-y-[-21.75%]' src={WAVES} alt='waves' />
+                </div>
+                
+            </div>
+        </div>
+    );
+}
+
+function Foreground() {
+
+    const values = ['developer', 'meme enthusiast' ,'tech guy'];
+    const [value, setValue] = useState(0);
+    const [vis, setVis] = useState(1);
+
+    const keyframes = [
+        {opacity: 0},
+        {opacity: 1}
+    ]
+
+    const timing = {
+        duration: 1000,
+        iterations: 1
+    }
+
+    useEffect(() => {
+        document.getElementById('page-value').animate(keyframes, timing);
+    }, [value]);
+
+    useEffect(() => {
+        var interval;
+        var count = 0;
+        interval = setInterval(() => {
+            if (count + 1 < values.length) {
+                count++
+            } else {
+                console.log('reset');
+                count = 0;
+            }
+            setValue(count);
+        }, 10000);
+
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
+
+    return (
+        <div className='absolute w-full h-[100vh] top-0 left-0 flex flex-row justify-end'>
+            <div className='w-[62.5%] h-full flex flex-col justify-center items-end relative'>
+                <h1 className='font-PublicSans text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-semibold inline text-right'>
+                    <span className='bg-gradient-to-r from-blue-500 via-blue-300 to-green-300 bg-clip-text text-transparent'>Hi,</span> my name is Blake.
+                </h1>
+                <h1 className='font-PublicSans text-4xl sm:text-6xl md:text-7xl xl:text-8xl font-semibold inline text-right'>
+                    I'm a <span id='page-value' className='bg-gradient-to-r from-blue-500 via-blue-300 to-green-300 bg-clip-text text-transparent relative'>{values[value]}</span>.
+                </h1>
+            </div>
+        </div>
+    )
+}
+
 export default function SplashScreen() {
     return (
-        <>
-            <Slide>
-                <BackdropLondon />
-                
-                <div className="map-area absolute right-0 bottom-4 w-1/2 h-[60%] z-30">
-                    <MapMarker city="Swampscott" x="60vh" y="60px" color="#6EE7B7" />
-                    <MapMarker city="Salem" x="67vh" y="80px" color="#9CA3AF" />
-                    <MapMarker city="Boston" x="46vh" y="90px" color="#9CA3AF" />
-                </div>
-                <img className="map absolute bottom-0 right-10 w-auto h-1/2 z-0" src={Mass} alt="Map" />
-                <div className="home-content absolute right-0 flex flex-col w-1/2 items-end h-full justify-center gap-4 z-20">
-                    <HomeTitle />
-                    <p className="desc-1 text-right font-PublicSans text-lg text-gray-500 pr-4">A skilled developer with a passion to learn and create. Has experience in both front-end and back-end developement, coming from an vocational highschool with extensive knowledge in Information Technology. </p>
-                </div>
-                <span className="map-caption absolute bottom-16 right-[5vh] text-3xl text-right font-PublicSans text-gray-300">Based in <span className="text-green-200">Swampscott</span>,<br />Massachusetts</span>
-            </Slide>
-            <div className="w-full h-[50vh] mt-16 mb-16 flex justify-center gap-4">
-                <ProfileCard />
-                <div className=" w-2/5 h-full flex flex-col">
-                    <h2 className="font-PublicSans text-5xl text-bold text-gray-700">Hello</h2>
-                    <p className="pt-8 pl-1 font-PublicSans text-base text-gray-800 font-light">{aboutMeData}</p>
-                </div>
-            </div>
-        </>
+        <div className='w-full h-[100vh] relative overflow-hidden'>
+            <Background />
+            <Foreground />
+        </div>
     );
 }

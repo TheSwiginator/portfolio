@@ -1,22 +1,20 @@
 // React dependencies
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 // Imported components
-import HomeLegacy from "./home-legacy";
-import Home from "./home";
-
-
-
+import Home from "./routes/home";
+import { NavigationList } from "./components/navigation/navigation-list";
+import ScrollNav from "./components/navigation/scroll-navigation";
 
 function App() {
-  const [pageIndex, setPageIndex] = useState('Legacy');
 
-  const pages = {
-    'Legacy': <HomeLegacy pageIndex={[pageIndex, setPageIndex]} />, 
-    'About': <Home pageIndex={[pageIndex, setPageIndex]} />,
-  };
-
-  return pages[pageIndex]
+  return (
+  <div>
+    <ScrollNav />
+    <Outlet />
+  </div>
+  );
 };
 
 export default App;

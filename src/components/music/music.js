@@ -1,11 +1,11 @@
 import { useEffect , useState , useRef, useCallback, forwardRef } from 'react';
 import SpotifyAPI from './spotify-api';
-import { NavigationList , NavigationListItem } from './navigation-list';
+import { NavigationList , NavigationListItem } from '../navigation/navigation-list';
 
-import CAL_ICON from './content/images/calendar-icon.svg';
-import HEADPHONES_ICON from './content/images/headphones-icon.svg';
-import ARROW_ICON from './content/images/arrow.svg';
-import SPOTIFY_ICON from './content/images/spotify.svg';
+import CAL_ICON from '../content/images/calendar-icon.svg';
+import HEADPHONES_ICON from '../content/images/headphones-icon.svg';
+import ARROW_ICON from '../content/images/arrow.svg';
+import SPOTIFY_ICON from '../content/images/spotify.svg';
 
 const Track = forwardRef(({targetIndex , index , trackUrl , trackName , trackLength , artistName , artistImg , albumImg , albumName , isExplicit }, ref) => {
     const [el, setEl] = useState(0);

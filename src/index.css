@@ -700,3 +700,35 @@
   animation: nod 5s cubic-bezier(.36,.07,.19,.97) infinite 4s;
   transform: rotate(0);
 }
+
+.typing-cursor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: red;
+  animation: typing 4s steps(10, end) forwards;
+}
+
+.blinking-cursor {
+  border-left: 1px solid black;
+  animation: blinking 0.8s ease infinite;
+}
+
+@keyframes blinking {
+  0% {
+    border-left-color: black;
+  }
+  100% {
+    border-left-color: white;
+  }
+}
+
+@keyframes typing {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
